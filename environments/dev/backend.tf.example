@@ -1,0 +1,10 @@
+# Rename to backend.tf after creating the backend resources.
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "rg-tfstate"
+    storage_account_name = "sttfstateexample"
+    container_name       = "tfstate"
+    key                  = "storage-private-link/dev.tfstate"
+    use_azuread_auth     = true
+  }
+}

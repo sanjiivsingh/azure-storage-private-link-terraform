@@ -1,0 +1,8 @@
+subscription_id      = "00000000-0000-0000-0000-000000000000"
+location             = "Central India"
+resource_group_name  = "rg-storage-private-link-dev"
+name_prefix          = "stpldev"
+vnet_address_space   = ["10.40.0.0/16"]
+pe_subnet_prefixes   = ["10.40.10.0/24"]
+storage_subresources = ["blob", "file", "queue", "table"]
+account_replication  = "LRS"

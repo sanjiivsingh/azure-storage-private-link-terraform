@@ -1,0 +1,13 @@
+sequenceDiagram
+  participant C as Client in linked VNet
+  participant R as DNS resolver
+  participant Z as Private DNS zone
+  participant P as Private Endpoint IP
+  participant S as Azure Storage
+  C->>R: Resolve account.blob.core.windows.net
+  R->>Z: Query Private Link namespace
+  Z-->>R: Private A record
+  R-->>C: Endpoint private IP
+  C->>P: HTTPS TCP/443
+  P->>S: Private Link connection
+  S-->>C: Response

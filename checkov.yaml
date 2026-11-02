@@ -1,0 +1,21 @@
+---
+framework:
+  - terraform
+quiet: true
+compact: true
+skip-check:
+  # CKV_AZURE_33 / CKV2_AZURE_21: Storage logging for queue/blob service
+  # Architectural Decision: Centralized diagnostics are handled via Azure Monitor / Log Analytics
+  # in the enterprise management baseline rather than legacy storage-level transaction logging.
+  - CKV_AZURE_33
+  - CKV2_AZURE_21
+
+  # CKV_AZURE_206: Storage account replication type
+  # Architectural Decision: Parameterized via var.account_replication (default LRS for cost-efficient dev,
+  # ZRS/GRS supported for production).
+  - CKV_AZURE_206
+
+  # CKV2_AZURE_1: Customer Managed Key (CMK)
+  # Architectural Decision: Platform-managed encryption (MMK) is used for baseline storage to avoid
+  # circular Key Vault dependencies in foundational infrastructure.
+  - CKV2_AZURE_1

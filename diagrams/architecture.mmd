@@ -1,0 +1,20 @@
+flowchart TB
+  subgraph VNet["Spoke VNet"]
+    W["Private workload"] --> S["Private Endpoint subnet"]
+    S --> B["Blob PE"]
+    S --> F["File PE"]
+    S --> Q["Queue PE"]
+    S --> T["Table PE"]
+  end
+  B --> SA["Storage Account"]
+  F --> SA
+  Q --> SA
+  T --> SA
+  B -.-> DB["Blob Private DNS"]
+  F -.-> DF["File Private DNS"]
+  Q -.-> DQ["Queue Private DNS"]
+  T -.-> DT["Table Private DNS"]
+  DB --- VNet
+  DF --- VNet
+  DQ --- VNet
+  DT --- VNet
