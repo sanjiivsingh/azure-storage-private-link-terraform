@@ -45,3 +45,4 @@ gitleaks dir . -v
 - **Transport Security**: TLS 1.2+ enforced (`min_tls_version = "TLS1_2"`), HTTPS-only traffic enforced.
 - **Data Protection**: Blob versioning enabled with 7-day soft delete retention policies for blobs and containers.
 - **Private Endpoints**: Distinct private endpoints created per enabled subresource (`blob`, `file`, `queue`, `table`) with automatic Private DNS zone registration via `private_dns_zone_group`.
+

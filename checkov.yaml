@@ -19,3 +19,13 @@ skip-check:
   # Architectural Decision: Platform-managed encryption (MMK) is used for baseline storage to avoid
   # circular Key Vault dependencies in foundational infrastructure.
   - CKV2_AZURE_1
+
+  # CKV2_AZURE_33: Storage account configured with private endpoint
+  # Architectural Decision: Private endpoints are decoupled into a dedicated child module
+  # (modules/private-endpoint) to support selective multi-subresource provisioning (Blob, File, Queue, Table).
+  - CKV2_AZURE_33
+
+  # CKV2_AZURE_31: Subnet configured with Network Security Group (NSG)
+  # Architectural Decision: NSG is provisioned and associated via azurerm_subnet_network_security_group_association;
+  # static graph scanners that inspect azurerm_subnet in isolation without association blocks skip this rule.
+  - CKV2_AZURE_31

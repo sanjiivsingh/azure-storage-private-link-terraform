@@ -29,3 +29,4 @@ We decided to deploy **distinct, per-subresource Private Endpoints** using Terra
 - Each enabled subresource consumes one private IP from the dedicated endpoint subnet.
 - The subnet CIDR must be sized appropriately (minimum `/27` or `/24` recommended).
 - Network Security Groups (NSGs) must account for traffic directed to the distinct private IPs allocated to each service endpoint.
+
